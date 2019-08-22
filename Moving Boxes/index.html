@@ -39,7 +39,6 @@
             var raycaster = new THREE.Raycaster(); 
             var mouse = new THREE.Vector2(); 
 
-
             //sphere accepts radius, width segments, and height segments -- larger width and height = higher vertice count and smoother obj.
             var geometry = new THREE.BoxGeometry(1, 1, 1); 
             //material passes in a color
@@ -87,7 +86,7 @@
                 event.preventDefault(); 
                 
                 mouse.x = (event.clientX / window.innerWidth) * 2 - 1; 
-                mouse.y = (event.clientY / window.innerHeight) *2 + 1; 
+                mouse.y = (event.clientY / window.innerHeight) * 2 + 1; 
 
                 raycaster.setFromCamera(mouse, camera); 
 
@@ -104,13 +103,11 @@
                     this.tl.to(intersects[i].object.scale, .5, {x: .5, ease: Expo.easeOut})
                     this.tl.to(intersects[i].object.position, .5, {x: 2, ease: Expo.easeOut})
                     this.tl.to(intersects[i].object.rotation, .5, {y: Math.PI*.5, ease: Expo.easeOut}, "=-1.5")
-                
                 }
             }
 
             render(); 
 
-            
             //moving animation based on hover event/ click event
             window.addEventListener('click', onMouseMove);
 
